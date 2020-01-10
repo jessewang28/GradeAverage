@@ -37,19 +37,18 @@ public class GradeAverage {
     // or equal to the previous value.  Otherwise returns false
     public boolean showsImprovement()
     {
-        boolean f = false;
         int counter = 0;
         for (int i=0; i<scores.length-1; i++){
             if (scores[i]<=scores[i+1]){
                 counter++;
             }
             else
-                break;
+                return false;
         }
         if (counter==scores.length-1){
-            f=true;
+            return true;
         }
-        return f;
+        return false;
     }
 
     // if the values in the scores array show improvement, returns the
@@ -57,9 +56,17 @@ public class GradeAverage {
     // equal to scores.length()/2
     public double finalGrade()
     {
-        //TODO add code here
-        return 0.0;
-    }
+        double fin=0;
+        boolean t = this.showsImprovement();
+        if (t==true){
+            fin = this.mean(scores.length/2, scores.length-1);
+            }
+        else{
+            fin=this.mean(0, scores.length-1);
+        }
+        return fin;
+        }
+    
     public static void main(String[] args) {
         int [] s1 = {50,50,20,80,53};   // not improved, finalGrade is 50.6
         int [] s2 = {20,50,50,53,80};   // improved, final grade is 61.0
@@ -76,7 +83,7 @@ public class GradeAverage {
         GradeAverage sr3 = new GradeAverage(s3);
         System.out.println(sr3.mean(0,3));
         System.out.println(sr3.showsImprovement());
-        //System.out.println(sr3.finalGrade());
+        System.out.println(sr3.finalGrade());
     }
 
 }
