@@ -66,7 +66,7 @@ public class GradeAverage {
         }
         return fin;
         }
-    
+
     public static void main(String[] args) {
         int [] s1 = {50,50,20,80,53};   // not improved, finalGrade is 50.6
         int [] s2 = {20,50,50,53,80};   // improved, final grade is 61.0
@@ -87,3 +87,13 @@ public class GradeAverage {
     }
 
 }
+
+//*50.6
+//false
+//50.6
+//50.6
+//true
+//61.0
+//50.0
+//true
+//65.0
